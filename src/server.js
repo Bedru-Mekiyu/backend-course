@@ -6,6 +6,7 @@ dotenv.config();
 connectDB();
 import movieRoutes from './routes/movieRoutes.js';
 import authRoutes from './routes/authRoutes.js';
+import watchlistRoutes from './routes/watchlistRoutes.js'
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -15,6 +16,7 @@ app.use(express.urlencoded({ extended: false }));
 
 app.use('/movies', movieRoutes);
 app.use('/auth', authRoutes);
+app.use('/watchlist',watchlistRoutes)
 app.listen(PORT, () => {
 
     console.log(`Server is running on http://localhost:${PORT}`);   
