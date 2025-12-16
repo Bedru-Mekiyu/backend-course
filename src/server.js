@@ -5,12 +5,14 @@ import { connectDB,disconnectDB } from './config/db.js';
 dotenv.config();
 connectDB();
 import movieRoutes from './routes/movieRoutes.js';
+import authRoutes from './routes/authRoutes.js';
 
 const app = express();
 const PORT = process.env.PORT || 3000;
 
 
 app.use('/movies', movieRoutes);
+app.use('/auth', authRoutes);
 app.listen(PORT, () => {
 
     console.log(`Server is running on http://localhost:${PORT}`);   
